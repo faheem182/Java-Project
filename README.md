@@ -1,98 +1,76 @@
-DESCRIPTION OF THE CODE
+# Task Management API (Spring Boot)
 
+A simple **Spring Boot REST API** for managing tasks.  
+It supports basic **CRUD operations** (Create, Read, Update, Delete) using an **in-memory data structure**.
 
+---
 
-This is a simple Spring Boot REST API for managing tasks.
-It supports basic CRUD operations (Create, Read, Update, Delete)
-using an in-memory data structure
+## 🚀 Features
+- Create a task  
+- Retrieve a task by ID  
+- Retrieve all tasks  
+- Update an existing task  
+- Delete a task  
 
+---
 
+## 🗂 Project Structure
 
+### **1. Task (Model)**
+- Represents a task with fields: `id`, `title`, `description`, `status`.  
+- Contains **getters, setters, and `toString()` method**.
 
+### **2. Status (Enum)**
+- Defines valid task statuses:  
+  - `TODO`  
+  - `IN_PROGRESS`  
+  - `COMPLETED`  
+  - `BLOCKED`
 
+### **3. TaskService (Service Layer)**
+- Acts as the **business logic layer**.  
+- Stores tasks in a `Map<Long, Task>` (simulating a database).  
+- Handles create, retrieve, update, delete operations.  
 
-Project Structure Overview
+### **4. TaskController (REST Controller)**
+- Exposes HTTP endpoints for task operations under `/tasks`.  
+- Uses `@RestController` and `@RequestMapping`.  
 
+---
 
+## 📌 API Endpoints
 
+| Method | Endpoint        | Description          |
+|--------|-----------------|----------------------|
+| POST   | `/tasks`        | Create a new task    |
+| GET    | `/tasks/{id}`   | Get task by ID       |
+| GET    | `/tasks`        | Get all tasks        |
+| PUT    | `/tasks/{id}`   | Update a task        |
+| DELETE | `/tasks/{id}`   | Delete a task        |
 
+---
 
+## 🛠 Testing with Postman
 
-Task (Model)
+1. Open Postman → **Collections → + (New Collection)**  
+2. Add a request for each operation below:  
 
-A Java class representing a task with fields: id, title, description, and status (currently as String).
+### **POST – Create Task**
+![POST Screenshot](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/b5f24f48086361c98eb85ccaabbced42cd0a132b/post.png)
 
-Contains getters, setters, and a toString() method.
+### **GET – Get All Tasks**
+![GET Screenshot](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/Get.png)
 
-Status (Enum)
+### **PUT – Update Task**
+![PUT Screenshot](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/PUT.png)
 
-An enumeration that defines valid task statuses: TODO, IN_PROGRESS, COMPLETED, BLOCKED.
+### **DELETE – Delete Task**
+![DELETE Screenshot](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/Delete.png)
 
-TaskService (Service Layer)
+---
 
-Acts as the business logic layer.
-
-Stores tasks in a Map<Long, Task>, simulating a database.
-
-Handles operations like creating, retrieving, updating, and deleting tasks.
-
-TaskController (REST Controller)
-
-Exposes HTTP endpoints for task operations under /tasks.
-
-Uses @RestController and @RequestMapping annotations.
-
-Supports:
-
-POST /tasks → Create a new task
-
-GET /tasks/{id} → Get task by ID
-
-GET /tasks → Get all tasks
-
-PUT /tasks/{id} → Update a task
-
-DELETE /tasks/{id} → Delete a task
-
-
-
-
-( Postman Working )
-
-
-
-open postman click on collections click on plus(+)
-icon select blank collectin
-then click on add request 
-after that follow the below steps
-
-
-
-
-POST
-
-
-![image alt](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/b5f24f48086361c98eb85ccaabbced42cd0a132b/post.png)
-
-
-GET
-
-
-![image alt](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/Get.png)
-
-
-PUT 
-
-
-![image alt](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/PUT.png)
-
-
-DELETE
-
-
-![image alt](https://github.com/My-Codes-21/160923733064-Mohammed_Sarfaraaz/blob/5d260ef213e83b1a872a57e9285f7feace6594ef/Delete.png)
-
-
-
-
-
+## ✅ How to Run
+1. Clone this repo:  
+   ```bash
+   git clone https://github.com/faheem182/my-project.git
+   cd my-project
